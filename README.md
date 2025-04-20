@@ -50,7 +50,7 @@ const English: Strings = {
 
 ```ts
 // 添加一个新的语言包
-Strings.addLanguage(English) 
+Strings.addLanguage(English)
 ```
 
 - #### 设置当前语言
@@ -64,7 +64,7 @@ Strings.setCurrentLanguage(Language.ChineseSimplified)
 
 ```ts
 // 返回已注册的语言列表
-Strings.getLanguages() 
+Strings.getLanguages()
 ```
 
 - #### 使用多语言
