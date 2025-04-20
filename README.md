@@ -30,7 +30,9 @@ cnpm install @airpower/i18n
 实现一个继承 `I18n` 的类，加入属性作为语言包的 `Key`, 且可作为默认语言：
 
 ```ts
-export class Languages extends I18n {
+export class Strings extends I18n {
+  // 如果默认语言不是简体中文，可以给 `language` 属性赋值
+  // language = Language.ChineseSimplified
   Hello_World = '你好，世界！'
 }
 ```
@@ -38,7 +40,7 @@ export class Languages extends I18n {
 - #### 声明一种新的语言包
 
 ```ts
-const English: Languages = {
+const English: Strings = {
   language: Language.English,
   Hello_World: 'Hello World!'
 }
@@ -47,13 +49,22 @@ const English: Languages = {
 - #### 添加语言包
 
 ```ts
-Strings.addLanguage(English)
+// 添加一个新的语言包
+Strings.addLanguage(English) 
 ```
 
 - #### 设置当前语言
 
 ```ts
+// 默认为简体中文
 Strings.setCurrentLanguage(Language.ChineseSimplified)
+```
+
+- #### 设置当前语言
+
+```ts
+// 返回已注册的语言列表
+Strings.getLanguages() 
 ```
 
 - #### 使用多语言

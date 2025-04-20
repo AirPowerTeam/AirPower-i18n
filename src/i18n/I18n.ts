@@ -31,7 +31,7 @@ import { Language } from './Language'
  * - #### 设置当前语言
  *
  * ```ts
- * I18n.setCurrentLanguage(Language.ChineseSimplified)
+ * Strings.setCurrentLanguage(Language.ChineseSimplified)
  * ```
  *
  * - #### 使用多语言
@@ -46,12 +46,14 @@ export class I18n {
   /**
    * ### 当前使用的语言
    */
-  private static currentLanguage = Language.ChineseSimplified
+  private static currentLanguage: string = Language.ChineseSimplified
+
   /**
    * ### 当前使用的语言包
    */
 
-  private static currentLanguagePackage?: I18n
+  private static package?: I18n
+
   /**
    * ### 语言列表
    */
@@ -60,13 +62,13 @@ export class I18n {
   /**
    * ### 语言名称
    */
-  language = Language.ChineseSimplified
+  language: string = Language.ChineseSimplified
 
   /**
    * ### 获取当前使用的语言
    * @returns 当前使用的语言
    */
-  static getCurrentLanguage(): Language {
+  static getCurrentLanguage(): string {
     return this.currentLanguage
   }
 
@@ -74,8 +76,8 @@ export class I18n {
    * ### 获取支持的语言列表
    * @returns 语言列表
    */
-  static getLanguages() {
-    return this.languages
+  static getLanguages(): string[] {
+    return this.languages.map(item => item.language)
   }
 
   /**
@@ -86,7 +88,7 @@ export class I18n {
     this: I18nClassConstructor<T>,
   ): T {
     this.initDefaultLanguage()
-    return (this.currentLanguagePackage || new I18n()) as T
+    return (this.package || new I18n()) as T
   }
 
   /**
@@ -103,16 +105,16 @@ export class I18n {
       I18n.languages.push(item)
     })
     // 初始化语言包
-    I18n.currentLanguagePackage = I18n.languages.find(item => item.language === I18n.currentLanguage) || I18n.languages[0]
+    I18n.package = I18n.languages.find(item => item.language === I18n.currentLanguage) || I18n.languages[0]
   }
 
   /**
    * ### 设置当前使用的语言
    * @param language 语言
    */
-  static setCurrentLanguage(language: Language): void {
+  static setCurrentLanguage(language: Language | string): void {
     this.currentLanguage = language
-    this.currentLanguagePackage = this.languages.find(item => item.language === this.currentLanguage) || this.languages[0]
+    this.package = this.languages.find(item => item.language === this.currentLanguage) || this.languages[0]
   }
 
   /**
