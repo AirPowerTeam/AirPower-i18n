@@ -2,7 +2,6 @@
   <img width="300" src="assets/airpower-bg.svg"/>
 </p>
 
-
 <p align="center">
 <a href="https://github.com/AirPowerTeam/AirPower-i18n">Github</a> /
 <a href="https://gitee.com/air-power/AirPower-i18n">Gitee</a> /
@@ -32,7 +31,7 @@ cnpm install @airpower/i18n
 
 ```ts
 export class Languages extends I18n {
-    Hello_World = '你好，世界！'
+  Hello_World = '你好，世界！'
 }
 ```
 
@@ -40,8 +39,8 @@ export class Languages extends I18n {
 
 ```ts
 const English: Languages = {
-    language: Language.English,
-    Hello_World = 'Hello World!'
+  language: Language.English,
+  Hello_World: 'Hello World!'
 }
 ```
 

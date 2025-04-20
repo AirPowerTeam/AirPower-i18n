@@ -18,7 +18,7 @@ import { Language } from './Language'
  * ```ts
  * const English: Strings = {
  *   language: Language.English,
- *   Hello_World = 'Hello World!'
+ *   Hello_World: 'Hello World!'
  * }
  * ```
  *
