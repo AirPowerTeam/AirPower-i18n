@@ -60,7 +60,7 @@ Strings.addLanguage(English)
 Strings.setCurrentLanguage(Language.ChineseSimplified)
 ```
 
-- #### 设置当前语言
+- #### 获取语言列表
 
 ```ts
 // 返回已注册的语言列表
