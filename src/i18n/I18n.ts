@@ -44,15 +44,9 @@ import { Language } from './Language'
  */
 export class I18n {
   /**
-   * ### 当前使用的语言
-   */
-  private static currentLanguage: string = Language.ChineseSimplified
-
-  /**
    * ### 当前使用的语言包
    */
-
-  private static package?: I18n
+  private static currentLanguage: I18n
 
   /**
    * ### 语言列表
@@ -69,7 +63,7 @@ export class I18n {
    * @returns 当前使用的语言
    */
   static getCurrentLanguage(): string {
-    return this.currentLanguage
+    return I18n.currentLanguage.language
   }
 
   /**
@@ -77,18 +71,16 @@ export class I18n {
    * @returns 语言列表
    */
   static getLanguages(): string[] {
-    return this.languages.map(item => item.language)
+    return I18n.languages.map(item => item.language)
   }
 
   /**
    * ### 获取翻译后的字符串
    * @returns 翻译后的字符串
    */
-  static get<T extends I18n>(
-    this: I18nClassConstructor<T>,
-  ): T {
-    this.initDefaultLanguage()
-    return (this.package || new I18n()) as T
+  static get<T extends I18n>(this: I18nClassConstructor<T>): T {
+    I18n.update(new this())
+    return I18n.currentLanguage as T
   }
 
   /**
@@ -97,15 +89,13 @@ export class I18n {
    */
   static addLanguage<T extends I18n>(this: I18nClassConstructor<T>, ...languages: T[]): void {
     if (languages.length === 0) {
-      throw new Error('languages is empty')
+      throw new Error('请传入语言包')
     }
+    I18n.update(new this())
     // 添加语言
-    this.initDefaultLanguage()
     languages.forEach((item) => {
       I18n.languages.push(item)
     })
-    // 初始化语言包
-    I18n.package = I18n.languages.find(item => item.language === I18n.currentLanguage) || I18n.languages[0]
   }
 
   /**
@@ -113,17 +103,27 @@ export class I18n {
    * @param language 语言
    */
   static setCurrentLanguage(language: Language | string): void {
-    this.currentLanguage = language
-    this.package = this.languages.find(item => item.language === this.currentLanguage) || this.languages[0]
+    if (I18n.languages.length === 0) {
+      I18n.update(new this())
+    }
+    I18n.currentLanguage = I18n.languages.find(item => item.language === language) || I18n.languages[0]
   }
 
   /**
-   * ### 初始化默认语言
+   * ### 更新语言
+   * @param language 语言
    */
-  private static initDefaultLanguage<T extends I18n>(this: I18nClassConstructor<T>) {
-    if (this.languages.length === 0) {
-      this.languages.push(JSON.parse(JSON.stringify(new this())))
-      this.setCurrentLanguage(this.languages[0].language)
+  private static update(language: I18n): void {
+    let isExist = false
+    for (let i = 0; i < I18n.languages.length; i++) {
+      if (I18n.languages[i].language === language.language) {
+        I18n.languages[i] = language
+        isExist = true
+        break
+      }
+    }
+    if (!isExist) {
+      I18n.languages.push(language)
     }
   }
 }
