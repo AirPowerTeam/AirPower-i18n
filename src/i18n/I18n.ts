@@ -2,7 +2,7 @@ import type { I18nClassConstructor } from './type'
 import { Language } from './Language'
 
 /**
- * # 语言国际化
+ * ### 语言国际化
  *
  * - #### 声明语言包实现类
  *
