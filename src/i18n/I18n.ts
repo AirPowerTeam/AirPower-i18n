@@ -125,5 +125,8 @@ export class I18n {
     if (!isExist) {
       I18n.languages.push(language)
     }
+    if (!I18n.currentLanguage) {
+      I18n.currentLanguage = language
+    }
   }
 }
