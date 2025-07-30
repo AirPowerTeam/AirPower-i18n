@@ -89,7 +89,8 @@ export class I18n {
    */
   static addLanguage<T extends I18n>(this: I18nClassConstructor<T>, ...languages: T[]): void {
     if (languages.length === 0) {
-      throw new Error('请传入语言包')
+      console.error('请传入语言包')
+      return
     }
     I18n.update(new this())
     // 添加语言
