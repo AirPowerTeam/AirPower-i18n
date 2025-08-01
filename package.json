@@ -1,7 +1,7 @@
 {
   "name": "@airpower/i18n",
   "type": "module",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "AirPower-i18n 是一个基于 TypeScript 原生支持的国际化工具。",
   "author": {
     "name": "Hamm",
