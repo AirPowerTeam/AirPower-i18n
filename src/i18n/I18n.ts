@@ -71,7 +71,7 @@ export class I18n {
    * @returns 语言列表
    */
   static getLanguages(): string[] {
-    return I18n.languages.map(item => item.language)
+    return I18n.languages.map((item: I18n): string => item.language)
   }
 
   /**
@@ -94,7 +94,7 @@ export class I18n {
     }
     I18n.update(new this())
     // 添加语言
-    languages.forEach((item) => {
+    languages.forEach((item: T): void => {
       I18n.languages.push(item)
     })
   }
@@ -107,7 +107,7 @@ export class I18n {
     if (I18n.languages.length === 0) {
       I18n.update(new this())
     }
-    I18n.currentLanguage = I18n.languages.find(item => item.language === language) || I18n.languages[0]
+    I18n.currentLanguage = I18n.languages.find((item: I18n): boolean => item.language === language) || I18n.languages[0]
   }
 
   /**
@@ -115,8 +115,8 @@ export class I18n {
    * @param language 语言
    */
   private static update(language: I18n): void {
-    let isExist = false
-    for (let i = 0; i < I18n.languages.length; i++) {
+    let isExist: boolean = false
+    for (let i: number = 0; i < I18n.languages.length; i++) {
       if (I18n.languages[i].language === language.language) {
         I18n.languages[i] = language
         isExist = true
