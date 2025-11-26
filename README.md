@@ -3,6 +3,15 @@
 </p>
 
 <p align="center">
+<a href="https://www.npmjs.com/@airpower/i18n">
+<img src="https://img.shields.io/npm/v/@airpower/i18n"/>
+</a>
+<a href="https://www.npmjs.com/@airpower/i18n">
+<img src="https://img.shields.io/npm/dm/@airpower/i18n"/>
+</a>
+</p>
+
+<p align="center">
 <a href="https://github.com/AirPowerTeam/AirPower-i18n">Github</a> /
 <a href="https://gitee.com/air-power/AirPower-i18n">Gitee</a> /
 <a href="https://www.npmjs.com/package/@airpower/i18n">NPM</a>
