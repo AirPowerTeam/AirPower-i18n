@@ -32,12 +32,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "eslint && tsc && vite build",
-    "lint": "eslint src --ext .ts",
-    "preview": "vite preview"
+    "build": "eslint && tsc && vite build"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@antfu/eslint-config": "^6.2.0",
     "@types/node": "^24.10.0",
