@@ -17,19 +17,6 @@ AirPower-i18n 是一个基于 TypeScript 原生支持的国际化（i18n）工�
 2. `Language.ts` - 定义支持语言的枚举，包含详细文档
 3. `type.ts` - 库的类型定义
 
-## 构建和运行
-
-### 先决条件
-- Node.js（兼容支持 TypeScript 5.8.3 的版本）
-- npm、yarn 或 pnpm 包管理器
-
-### 设置
-1. 克隆仓库
-2. 安装依赖项：`npm install`（或使用您首选的包管理器）
-
-### 开发命令
-- `npm run build` - 使用 ESLint、TypeScript 编译器和 Vite 构建项目
-
 ### 构建过程
 构建过程使用：
 - TypeScript 编译器转换源代码
@@ -38,24 +25,6 @@ AirPower-i18n 是一个基于 TypeScript 原生支持的国际化（i18n）工�
 - 输出放置在 `dist` 目录中作为 ES 模块
 
 ## 开发约定
-
-### 代码风格
-- 遵循 Antfu ESLint 配置（`@antfu/eslint-config`）
-- 启用严格的 TypeScript 设置
-- 现代 ES2020+ 语法与 ES 模块
-- 启用装饰器支持（experimentalDecorators 和 emitDecoratorMetadata）
-
-### 命名约定
-- 类名使用帕斯卡命名法（例如 `I18n`、`Strings`）
-- 翻译键使用大写下划线命名法（例如 `Hello_World`）
-- 方法和属性使用驼峰命名法
-
-### 国际化模式
-该库实现了基于类的方法：
-1. 开发人员扩展 `I18n` 类来定义他们的语言包
-2. 类中的属性成为翻译键
-3. 使用 `addLanguage()` 添加不同的语言实现
-4. 使用 `setCurrentLanguage()` 切换当前语言
 
 ### 示例使用模式
 ```ts
@@ -106,5 +75,5 @@ src/
 - 更新 `package.json` 中的版本号
 - 使用 `yarn build` 构建项目
 - 使用 `npm publish` 发布包
-- 提交本地变更的代码到 Github
-- 创建 `git tag` 并推送到Github
+- 使用 `git add/commit/push` 将本地所有变更的文件推送到 Github
+- 根据当前版本创建 `git tag` 并推送到Github，格式例如 `v1.2.3`
