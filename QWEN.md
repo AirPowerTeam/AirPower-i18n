@@ -100,11 +100,11 @@ src/
 ## 发布
 该包以 `@airpower/i18n` 名称发布在 npm 上，具有公共访问权限。
 
-
 ## 版本发布自动化流程
 
 - 使用 `eslint --fix` 修复项目中可能出现的问题
 - 更新 `package.json` 中的版本号
 - 使用 `yarn build` 构建项目
 - 使用 `npm publish` 发布包
+- 提交本地变更的代码到 Github
 - 创建 `git tag` 并推送到Github
