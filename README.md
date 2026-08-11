@@ -1,13 +1,13 @@
 <p align="center">
-  <img width="300" src="assets/airpower-bg.svg"/>
+  <img width="300" src="assets/airpower-bg.svg" alt=""/>
 </p>
 
 <p align="center">
 <a href="https://www.npmjs.com/@airpower/i18n">
-<img src="https://img.shields.io/npm/v/@airpower/i18n"/>
+<img src="https://img.shields.io/npm/v/@airpower/i18n" alt=""/>
 </a>
 <a href="https://www.npmjs.com/@airpower/i18n">
-<img src="https://img.shields.io/npm/dm/@airpower/i18n"/>
+<img src="https://img.shields.io/npm/dm/@airpower/i18n" alt=""/>
 </a>
 </p>
 
@@ -34,7 +34,7 @@ cnpm install @airpower/i18n
 
 ## 📖 参考文档
 
-- #### 声明语言包实现类
+### 声明语言包实现类
 
 实现一个继承 `I18n` 的类，加入属性作为语言包的 `Key`, 且可作为默认语言：
 
@@ -46,7 +46,7 @@ export class Strings extends I18n {
 }
 ```
 
-- #### 声明一种新的语言包
+### 声明一种新的语言包
 
 ```ts
 const English: Strings = {
@@ -55,28 +55,28 @@ const English: Strings = {
 }
 ```
 
-- #### 添加语言包
+### 添加语言包
 
 ```ts
 // 添加一个新的语言包
 Strings.addLanguage(English)
 ```
 
-- #### 设置当前语言
+### 设置当前语言
 
 ```ts
 // 默认为简体中文
 Strings.setCurrentLanguage(Language.ChineseSimplified)
 ```
 
-- #### 获取语言列表
+### 获取语言列表
 
 ```ts
 // 返回已注册的语言列表
 Strings.getLanguages()
 ```
 
-- #### 使用多语言
+### 使用多语言
 
 ```ts
 console.log(Strings.get().Hello_World)
